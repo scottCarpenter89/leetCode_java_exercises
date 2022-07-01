@@ -21,7 +21,7 @@ import java.util.Arrays;
  *
  *
  * Follow up: Could you minimize the total number of operations done?*/
-public class MovesZeros {
+public class MoveZeros {
     public static void main (String[] args) {
        moveZeroes(new int[] {0,1,0,3,12});
     }
