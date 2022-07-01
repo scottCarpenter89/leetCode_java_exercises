@@ -43,24 +43,29 @@ public class RotateArray {
 
     public static boolean rotate(int[] nums, int k) {
 
-        k %= nums.length; // ex) 3 % 7 = 3; 7 does not fit into 3 so it just returns 3
-        reverse(nums, 0, nums.length - 1); // calls reverse method
-        System.out.println(Arrays.toString(nums));
-        reverse(nums, 0, k - 1);
-        System.out.println(Arrays.toString(nums));
-        reverse(nums, k, nums.length - 1);
-        System.out.println(Arrays.toString(nums));
+        k %= nums.length; // ex) 3 % 7 = 3; 7 does not fit into, so it just returns 3
+        reverse(nums, 0, nums.length - 1); // calls reverse method and reverses the numbers; [7, 6, 5, 4, 3, 2, 1]
+
+        reverse(nums, 0, k - 1); // this reverse ends at k - 1 (which is at the index of 2 here); [5, 6, 7, 4, 3, 2, 1]
+
+        reverse(nums, k, nums.length - 1); // this reverse ends nums.length - 1; [5, 6, 7, 1, 2, 3, 4]
+        // needed to return a static boolean for it to compile for some reason
         return false;
     }
 
     private static void reverse(int[] nums, int start, int end) {
         while (start < end) {
-            // a temp
+            // a temp variable is set the starting number of nums
             int temp = nums[start];
+            // the starting number becomes the ending number
             nums[start] = nums[end];
+            // the ending number begins at whatever temp has it assigned as
             nums[end] = temp;
+            // the start increments through the array
             start++;
+            // the end decrements through the array
             end--;
+            // the loop starts over
         }
     }
 
